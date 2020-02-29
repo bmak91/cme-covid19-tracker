@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecaptchaModule } from 'ng-recaptcha';
+import { RouterModule } from '@angular/router';
+import { AppService } from './app.component.service';
 
 @NgModule({
   declarations: [
@@ -15,9 +18,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     CustomMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecaptchaModule,
+    RouterModule.forRoot([])
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

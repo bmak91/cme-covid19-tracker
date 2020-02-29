@@ -1,20 +1,18 @@
 <img src="../assets/images/coronavirus.jpg" class="background-img">
 <div class="card-wrapper">
   <mat-card class="form-card">
-    <!--    <mat-card-header>
-      <mat-card-title>Login</mat-card-title>
-    </mat-card-header> -->
     <mat-card-content>
       <form [formGroup]="formGroup">
-        <mat-horizontal-stepper [linear]="true" #stepper>
+        <mat-horizontal-stepper [linear]="true" #stepper *ngIf="!alreadySubmitted">
           <mat-step [stepControl]="formGroup.get('community')">
             <ng-template matStepLabel>Community</ng-template>
             <h2 class="question">
               Fill out your community name
             </h2>
-            <mat-form-field class="input-data">
+            <mat-form-field class="input-data input-community">
               <input matInput placeholder="My community" formControlName="community" required>
             </mat-form-field>
+            <re-captcha (resolved)="resolved($event)" siteKey="myAppKey"></re-captcha>
             <div class="button-container">
               <button mat-raised-button color="primary" matStepperNext color="primary" class="f-r">Next</button>
             </div>
@@ -34,8 +32,8 @@
               </mat-radio-button>
             </mat-radio-group>
             <div class="button-container">
-              <button mat-raised-button color="primary" matStepperNext class="f-r" color="primary" >Next</button>
-              <button mat-raised-button color="primary" matStepperPrevious class="f-l" color="primary" >Back</button>
+              <button mat-raised-button color="primary" matStepperNext class="f-r" color="primary">Next</button>
+              <button mat-raised-button color="primary" matStepperPrevious class="f-l" color="primary">Back</button>
             </div>
           </mat-step>
           <mat-step [stepControl]="formGroup.get('inContactInfCountries')">
@@ -91,23 +89,35 @@
           </mat-step>
           <mat-step>
             <ng-template matStepLabel>Done</ng-template>
-            <h2>
+            <h2 class="thanks">
               Thanks for your time.
             </h2>
             <h2 class="question">
-              You can share this survey with your community
+              You can share this survey using the following link:
             </h2>
-
+            <span class="link">{{sharableLink}}?referenceKey={{key}}</span>
+            <div class="button-container">
+              <button mat-raised-button color="primary" class="f-r">Share</button>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+        <mat-horizontal-stepper [linear]="true" #stepper *ngIf="alreadySubmitted">
+          <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <h2 class="thanks">
+              Thnks for your interest! The survey was submitted previously!
+            </h2>
+            <img src="../assets/images/hand-shaking.PNG" class="thanks-img">
+            <h2 class="question">
+              You can share this survey using the following link:
+            </h2>
+            <span class="link">{{sharableLink}}?referenceKey={{key}}</span>
             <div class="button-container">
               <button mat-raised-button color="primary" class="f-r">Share</button>
             </div>
           </mat-step>
         </mat-horizontal-stepper>
       </form>
-      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
     </mat-card-content>
-    <!--  <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">Login</button>
-    </mat-card-actions> -->
   </mat-card>
 </div>
