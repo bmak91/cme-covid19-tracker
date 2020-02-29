@@ -16,7 +16,7 @@ const handler = async (req, res) => {
       })
       .from('persons')
       .join('communities', 'persons.main_community_id', 'communities.id')
-      .where('persons.key', key);
+      .where('persons.key', key || '');
 
   try {
     if (existingKey) {
@@ -31,17 +31,15 @@ const handler = async (req, res) => {
 
       return res.send({});
     } else {
-      let { communityId, communityName } = await db
-        .first({
-          communityId: 'main_community_id',
-          community: 'communities.name',
-        })
-        .from('persons')
-        .join('communities', 'persons.main_community_id', 'communities.id')
-        .where('persons.key', key);
+      let person = await getPersonByKey(key);
 
       return res.send(
-        (communityId && { id: communityId, name: communityName }) || {}
+        (person &&
+          person.communityId && {
+            id: person.communityId,
+            name: person.communityName,
+          }) ||
+          {}
       );
     }
   } catch (e) {
