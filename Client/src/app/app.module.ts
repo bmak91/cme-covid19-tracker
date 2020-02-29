@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { RouterModule } from '@angular/router';
 import { AppService } from './app.component.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppService } from './app.component.service';
     FormsModule,
     ReactiveFormsModule,
     RecaptchaModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    HttpClientModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

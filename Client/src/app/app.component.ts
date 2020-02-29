@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { ActivatedRoute } from '@angular/router';
-import { Community, Survey } from './shared/models/info.model';
+import { Community, Info, Survey } from './shared/models/info.model';
 import { AppService } from './app.component.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
   fifthFormGroup: FormGroup;
-  community: Community = { community: '' };
+  info: Info = { community: '' };
   refrenceKey: string;
   key: string;
   localStorageKey: string = 'CoronavirusSurvey';
@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
       }
       this.appService.sendReference(this.refrenceKey, this.key).subscribe(data => {
         if (data) {
-          this.community = data;
+          this.info = data;
         }
       });
     });
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.formGroup = this._formBuilder.group({
-      community: [this.community.community, Validators.required],
+      community: [this.info.community, Validators.required],
       isPositive: ['', Validators.required],
       inContactInfCountries: ['', Validators.required],
       inContactInfPeople: ['', Validators.required],
@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
     let response = this.formGroup.getRawValue();
     let survey: Survey = {
       key: this.refrenceKey,
-      community: this.community.community !== response.community ? { community: response.community } : this.community,
+      community: this.info.community === response.community ? { id: this.info.communityId, name: this.info.community } : { name: response.community },
       answers: [response.isPositive, response.inContactInfCountries, response.inContactInfPeople],
       phone: response.phoneNumber
     }

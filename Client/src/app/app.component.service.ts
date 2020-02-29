@@ -6,20 +6,21 @@ import { Survey } from './shared/models/info.model';
 @Injectable()
 export class AppService {
 
-    protocole = 'http://'
-    domain = 'coronavirus-survey.gotocme.com'
+    protocole = 'http://';
+    domain = 'coronavirus-survey.gotocme.com';
+    host = 'http://localhost:3000/api';
     constructor(private http: HttpClient) {
     }
 
     sendReference(hash?: string, key?: string): Observable<any> {
         const headers = new Headers({ 'Content-Type': 'application/json' }) as any;
-        let endPoint = hash ? `/info/${hash}` : '/info';
-        return this.http.post(`${this.protocole}/${this.domain}/${endPoint}`, key ?? { key: key }, { headers: headers, observe: 'response' });
+        let endPoint = hash ? `info/${hash}` : 'info';
+        return this.http.post(`${this.host}/${endPoint}`, key ? { existingKey: key } : null, { headers: headers, observe: 'response' });
     }
 
     save(survey: Survey): Observable<any> {
         const headers = new Headers({ 'Content-Type': 'application/json' }) as any;
-        return this.http.post(`${this.protocole}/${this.domain}/save`, survey, { headers: headers, observe: 'response' });
+        return this.http.post(`${this.host}/save`, survey, { headers: headers, observe: 'response' });
     }
 
 }
