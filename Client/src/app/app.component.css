@@ -1,0 +1,67 @@
+.card-wrapper {
+  width: 100%;
+  display: flex;
+  height: 100%;
+}
+
+.form-card {
+  margin: auto;
+  min-height: 500px;
+  width: 65%;
+  height: 60%;
+  max-width: 700px;
+  max-height: 600px;
+  min-width: 350px;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 8px 8px 40px 5px black;
+}
+
+.background-img {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  filter: brightness(50%);
+}
+
+:host ::ng-deep .mat-horizontal-stepper-header-container {
+  display: none;
+}
+
+:host ::ng-deep .mat-horizontal-content-container {
+  text-align: center;
+}
+
+mat-card.mat-card {
+  vertical-align: middle;
+  display: flex;
+}
+
+.f-r {
+  float: right;
+}
+
+.f-l {
+  float: left;
+}
+
+.question {
+  margin-bottom: 10%;
+}
+
+.button-container {
+  margin-top: 10%;
+}
+
+mat-radio-button {
+  margin: 0px 7% 0px 7%;
+}
+
+.input-data {
+  width: 70%;
+}
+
+.mat-raised-button.mat-primary {
+  background-color: #2a4116;
+}

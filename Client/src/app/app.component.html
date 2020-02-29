@@ -1,0 +1,113 @@
+<img src="../assets/images/coronavirus.jpg" class="background-img">
+<div class="card-wrapper">
+  <mat-card class="form-card">
+    <!--    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header> -->
+    <mat-card-content>
+      <form [formGroup]="formGroup">
+        <mat-horizontal-stepper [linear]="true" #stepper>
+          <mat-step [stepControl]="formGroup.get('community')">
+            <ng-template matStepLabel>Community</ng-template>
+            <h2 class="question">
+              Fill out your community name
+            </h2>
+            <mat-form-field class="input-data">
+              <input matInput placeholder="My community" formControlName="community" required>
+            </mat-form-field>
+            <div class="button-container">
+              <button mat-raised-button color="primary" matStepperNext color="primary" class="f-r">Next</button>
+            </div>
+          </mat-step>
+          <mat-step [stepControl]="formGroup.get('isPositive')">
+            <ng-template matStepLabel>Is positive</ng-template>
+            <h2 class="question">
+              Have you been yourself assessed positive for coronavirus or under quarantine?
+            </h2>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+              formControlName="isPositive">
+              <mat-radio-button class="example-radio-button" [value]="true">
+                YES
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" [value]="false">
+                NO
+              </mat-radio-button>
+            </mat-radio-group>
+            <div class="button-container">
+              <button mat-raised-button color="primary" matStepperNext class="f-r" color="primary" >Next</button>
+              <button mat-raised-button color="primary" matStepperPrevious class="f-l" color="primary" >Back</button>
+            </div>
+          </mat-step>
+          <mat-step [stepControl]="formGroup.get('inContactInfCountries')">
+            <ng-template matStepLabel>In Contact with people coming from infected areas</ng-template>
+            <h2 class="question">
+              Have you been in contact with people coming from: China, Italy, South Korea,Iran and Japan during the past
+              30 days?
+            </h2>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+              formControlName="inContactInfCountries">
+              <mat-radio-button class="example-radio-button" [value]="true">
+                YES
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" [value]="false">
+                NO
+              </mat-radio-button>
+            </mat-radio-group>
+            <div class="button-container">
+              <button mat-raised-button color="primary" matStepperNext class="f-r">Next</button>
+              <button mat-raised-button color="primary" matStepperPrevious class="f-l">Back</button>
+            </div>
+          </mat-step>
+          <mat-step [stepControl]="formGroup.get('inContactInfPeople')">
+            <ng-template matStepLabel>In Contact with Infected People</ng-template>
+            <h2 class="question">
+              Have you been in contact with suspicious (under quarantine) or confirmed cases of coronavirus?
+            </h2>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+              formControlName="inContactInfPeople">
+              <mat-radio-button class="example-radio-button" [value]="true">
+                YES
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" [value]="false">
+                NO
+              </mat-radio-button>
+            </mat-radio-group>
+            <div class="button-container">
+              <button mat-raised-button color="primary" matStepperNext class="f-r">Next</button>
+              <button mat-raised-button color="primary" matStepperPrevious class="f-l">Back</button>
+            </div>
+          </mat-step>
+          <mat-step [stepControl]="formGroup.get('phoneNumber')">
+            <ng-template matStepLabel>Phone number</ng-template>
+            <h2 class="question">
+              If you want to receive risk assessment notification in the future, please fill in your phone number</h2>
+            <mat-form-field class="input-data">
+              <input matInput formControlName="phoneNumber" placeholder="0096103......">
+            </mat-form-field>
+            <div class="button-container">
+              <button mat-raised-button color="primary" (click)="onSubmit(stepper)" class="f-r">Done</button>
+              <button mat-raised-button color="primary" matStepperPrevious class="f-l">Back</button>
+            </div>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <h2>
+              Thanks for your time.
+            </h2>
+            <h2 class="question">
+              You can share this survey with your community
+            </h2>
+
+            <div class="button-container">
+              <button mat-raised-button color="primary" class="f-r">Share</button>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </form>
+      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <!--  <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">Login</button>
+    </mat-card-actions> -->
+  </mat-card>
+</div>
