@@ -6,31 +6,36 @@ const handler = async (req, res) => {
   /** @type {Knex} */
   const db = req.session.db;
   let { key, community, answers, phone } = req.body;
+  let { id: communityId, name: communityName } = community;
 
   try {
     let referrerId;
-    let communityId;
-    if (!!key) {
+
+    if (!communityId && communityName) {
+      // If communityId is missing,
+      // create a new community
+
+      communityId = uuid();
+      await db('communities').insert({
+        id: communityId,
+        name: communityName,
+      });
+    } else if (!!communityId && !!key) {
+      // If we're being sent a communityId,
+      // make sure it matches the key
+
       let person = await db
         .first({
           referrerId: 'persons.id',
           communityId: 'main_community_id',
-          community: 'communities.name',
+          communityName: 'communities.name',
         })
         .from('persons')
         .join('communities', 'persons.main_community_id', 'communities.id')
         .where('persons.key', key);
 
-      person && ({ community, communityId, referrerId } = person);
-    }
-
-    if (!communityId && community) {
-      communityId = uuid();
-      await db('communities').insert({
-        id: communityId,
-        name: community,
-      });
-    } else if (!communityId) {
+      person && ({ communityName, communityId, referrerId } = person);
+    } else {
       return res.status(400).send('Community not specified');
     }
 
