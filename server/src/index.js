@@ -1,10 +1,12 @@
 const express = require('express');
 const Knex = require('knex');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
 const config = require('./settings.json');
 
 const app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json(), cors());
 
 const db = Knex({
   client: 'pg',
