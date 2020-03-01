@@ -21,7 +21,6 @@
     "@angular/platform-browser": "~9.0.3",
     "@angular/platform-browser-dynamic": "~9.0.3",
     "@angular/router": "~9.0.3",
-    "@ngx-share/buttons": "^7.1.4",
     "bootstrap": "^4.4.1",
     "ng-recaptcha": "^5.0.0",
     "ngx-bootstrap": "^5.3.2",

@@ -9,10 +9,12 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { RouterModule } from '@angular/router';
 import { AppService } from './app.component.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ThanksComponent } from './thanks/thanks.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ThanksComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@
 
 .form-card {
   margin: auto;
-  min-height: 500px;
+  min-height: 430px;
   width: 65%;
   height: 60%;
   max-width: 700px;
@@ -95,4 +95,10 @@ mat-radio-button {
 
 .link {
   font-style: italic;
+  word-break: break-all;
+}
+
+.wa_btn{
+  color: #fff;
+  text-decoration: none;
 }

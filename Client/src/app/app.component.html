@@ -80,7 +80,7 @@
             <h2 class="question">
               If you want to receive risk assessment notification in the future, please fill in your phone number</h2>
             <mat-form-field class="input-data">
-              <input matInput formControlName="phoneNumber" placeholder="0096103......">
+              <input matInput formControlName="phoneNumber">
             </mat-form-field>
             <div class="button-container">
               <button mat-raised-button color="primary" (click)="onSubmit(stepper)" class="f-r">Done</button>
@@ -92,12 +92,15 @@
             <h2 class="thanks">
               Thanks for your time.
             </h2>
+            <img src="../assets/images/hand-shaking.PNG" class="thanks-img">
             <h2 class="question">
               You can share this survey using the following link:
             </h2>
-            <span class="link">{{sharableLink}}?referenceKey={{key}}</span>
+            <span class="link">{{getSharableLink()}}</span>
             <div class="button-container">
-              <button mat-raised-button color="primary" class="f-r">Share</button>
+
+              <button mat-raised-button color="primary" class="f-r"><a [href]="wtspUrl"
+                  data-text="Take a quick survey about Coronavirus:" class="wa_btn wa_btn_s">Share</a></button>
             </div>
           </mat-step>
         </mat-horizontal-stepper>
@@ -111,9 +114,10 @@
             <h2 class="question">
               You can share this survey using the following link:
             </h2>
-            <span class="link">{{sharableLink}}?referenceKey={{key}}</span>
+            <span class="link">{{getSharableLink()}}</span>
             <div class="button-container">
-              <button mat-raised-button color="primary" class="f-r">Share</button>
+              <button mat-raised-button color="primary" class="f-r"><a [href]="wtspUrl"
+                  data-text="Take a quick survey about Coronavirus:" class="wa_btn wa_btn_s">Share</a></button>
             </div>
           </mat-step>
         </mat-horizontal-stepper>

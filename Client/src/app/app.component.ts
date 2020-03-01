@@ -19,13 +19,14 @@ export class AppComponent implements OnInit {
   fourthFormGroup: FormGroup;
   fifthFormGroup: FormGroup;
   info: Info = { community: '' };
-  refrenceKey: string;
+  referenceKey: string;
   key: string;
   localStorageKey: string = 'CoronavirusSurvey';
   alreadySubmitted: boolean = false;
   domainName = 'coronavirus-survey.gotocme.com';
   sharableLink: string = `${this.domainName}`;
-
+  wtspUrl: string = 'whatsapp://send?text=http://localhost?referenceKey=100dd6cd76ccc3fa306d604c987b2a6d8a3c25eb';
+  
   constructor(
     private _formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -36,16 +37,18 @@ export class AppComponent implements OnInit {
       console.log('already submitted');
     }
     this.route.queryParams.subscribe(params => {
-      if (params.refrenceKey) {
-        console.log(params.refrenceKey);
-        this.refrenceKey = params.refrenceKey;
-        //this.community = { communityId: '1', community: 'CME' };
+      console.log(params);
+      if (params.referenceKey) {
+        console.log(params.referenceKey);
+        this.referenceKey = params.referenceKey;
       }
-      this.appService.sendReference(this.refrenceKey, this.key).subscribe(data => {
-        if (data) {
-          this.info = data;
+      /* this.appService.sendReference(this.referenceKey, this.key).subscribe(data => {
+        if (data && data.body) {
+          this.info = data.body;
+          console.log(data.body);
         }
-      });
+      }); */
+      this.info = { community: 'CME', communityId: '1'};
     });
   }
 
@@ -62,19 +65,18 @@ export class AppComponent implements OnInit {
   onSubmit(stepper: MatStepper) {
     let response = this.formGroup.getRawValue();
     let survey: Survey = {
-      key: this.refrenceKey,
+      key: this.referenceKey,
       community: this.info.community === response.community ? { id: this.info.communityId, name: this.info.community } : { name: response.community },
       answers: [response.isPositive, response.inContactInfCountries, response.inContactInfPeople],
       phone: response.phoneNumber
     }
     this.appService.save(survey).subscribe(data => {
-      if (data) {
-        this.key = data;
+      if (data && data.body && data.body.newKey) {
+        this.key = data.body.newKey;
         localStorage.setItem(this.localStorageKey, this.key);
         this.alreadySubmitted = true;
       }
     });
-    //this.key = 'newKey';
     stepper.next();
   }
 
@@ -82,5 +84,8 @@ export class AppComponent implements OnInit {
     console.log(`Resolved captcha with response: ${captchaResponse}`);
   }
 
+  getSharableLink(){
+    return `${this.sharableLink}?referenceKey=${this.key}`
+  }
 
 }
