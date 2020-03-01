@@ -1,0 +1,62 @@
+{
+    "welcome": {
+        "title": "Coronavirus Busters",
+        "text1": "Welcome to the Coronavirus Busters crowdsourcing platform.",
+        "text2": "Take a 10 seconds survey to protect yourself and help saving other lives.",
+        "action": "Take survey"
+    },
+    "first-question": {
+        "title": "Are you having Coronavirus symptoms?",
+        "option1": "Yes",
+        "option2": "No",
+        "action": "Next"
+    },
+    "second-question": {
+        "title": "Have you been tested positive for coronavirus or under quarantine?",
+        "option1": "Tested Positive",
+        "option2": "Under quarantine",
+        "option3": "None",
+        "action": "Next"
+    },
+    "third-question": {
+        "title": "Up to your knowledge, Have you been in contact with people coming from China, Italy, Iran, Japan or South Korea?",
+        "option1": "Yes",
+        "option2": "No",
+        "action": "Next"
+    },
+    "fourth-question": {
+        "title": "Up to your knowledge, have you been in presence of someone who had any of the below?",
+        "option1": "Confirmed Coronavirus",
+        "option2": "Suspected Coronavirus",
+        "option3": "None",
+        "action": "Next"
+    },
+    "phone-number": {
+        "title": "Enter your phone number to receive notification alerts and risk assessments:",
+        "action": "Next"
+    },
+    "share": {
+        "title": "Thank you!",
+        "text1": " Share with your friends, colleagues and family; encourage them to check in and let’s go viral to fight coronavirus!",
+        "text2": "The wider you disseminate Coronavirus Busters, the better you can assess threats around you and take preventive measures.",
+        "action": "Share"
+    },
+    "community": {
+        "title": "Want to help more?",
+        "text1": "Associate your identity with different tags or communities by simply typing below the name of the place where you work, study or live:",
+        "text2": "Add more tags comma separated",
+        "action": "You rock!"
+    },
+    "main-screen": {
+        "title": "Coronavirus Busted!",
+        "text1": "United we win! Would you like to share with your network to check in on Coronavirus Busters?",
+        "text2": "You can also update your data by taking the 10 seconds survey.",
+        "action1": "Invite",
+        "action2": "Take survey"
+    },
+    "hint":{
+        "text1": "If there are any changes in your information you can update it by resubmitting your responses",
+        "text2": "The information you are providing on Corona Busters will allow to assess risk and inform you of potential threats so you can take preventive action. Your personal data will remain strictly confidential and will not shared be with any party without your explicit consent. For more information, you can review our",
+        "link": "privacy and security policy"
+    }
+}

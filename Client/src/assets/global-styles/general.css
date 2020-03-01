@@ -5,3 +5,12 @@
 .f-l {
   float: left;
 }
+
+.rtl .cancel-btn {
+  float: left;
+}
+
+.cancel-btn {
+  float: right;
+  cursor: pointer;
+}

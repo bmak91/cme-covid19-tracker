@@ -31,7 +31,7 @@ mat-card-content.mat-card-content {
   display: none;
 }
 
-:host ::ng-deep mat-horizontal-stepper.mat-stepper-horizontal{
+:host ::ng-deep mat-horizontal-stepper.mat-stepper-horizontal {
   background-color: #eaf1f3;
 }
 
@@ -63,14 +63,7 @@ mat-radio-button {
   background-color: #2a4116;
 }
 
-.thanks {
-  color: #2a4116;
+.card-wrapper.rtl {
+  text-align: right;
+  direction: rtl;
 }
-
-.thanks-img {
-  width: 50%;
-}
-
-
-
-

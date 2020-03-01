@@ -1,14 +1,16 @@
 <div class="content">
     <h2 class="screen-title">
-        Enter your phone number to receive notification alerts and risk assessments:
+        {{'phone-number.title' | translate}}
+
         <span class="cancel-btn" (click)="onClick($event)">X</span>
     </h2>
     <div class="model-content">
-        <mat-form-field class="input-data" appearance="fill">
+        <mat-form-field class="input-data" appearance="fill" dir="rtl">
             <input matInput [(ngModel)]="phoneNumber">
         </mat-form-field>
     </div>
 </div>
 <div class="button-container">
-    <button mat-raised-button color="primary" class="action-btn" (click)="onClick($event)">Next</button>
+    <button mat-raised-button color="primary" class="action-btn"
+        (click)="onClick($event)">{{'phone-number.action' | translate}}</button>
 </div>

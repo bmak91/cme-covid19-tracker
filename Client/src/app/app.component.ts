@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Community, Info, Survey } from './shared/models/info.model';
 import { AppService } from './app.component.service';
 import { environment } from 'src/environments/environment';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -21,13 +22,22 @@ export class AppComponent implements OnInit {
   alreadySubmitted: boolean = false;
   sharableLink: string;
   info: Info;
-
+  defaultLanguage = 'ar';
+  rtl = true;
   constructor(
     private _formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private appService: AppService) {
+    private appService: AppService,
+    private translate: TranslateService) {
     this.key = localStorage.getItem(this.localStorageKey);
     this.route.queryParams.subscribe(params => {
+      if (params.lang) {
+        this.defaultLanguage = params.lang;
+      }
+      translate.setDefaultLang(this.defaultLanguage);
+      if (this.defaultLanguage !== 'ar') {
+        this.rtl = false;
+      }
       if (params.referenceKey) {
         this.referenceKey = params.referenceKey;
       }
@@ -51,7 +61,7 @@ export class AppComponent implements OnInit {
     console.log('getting info');
     this.info = {
       connNb: 35,
-      riskState: 'Medium Risk'
+      riskState: 'Normal'
     }
   }
 
@@ -80,7 +90,7 @@ export class AppComponent implements OnInit {
     this.key = 'myKey';
     this.info = {
       connNb: 35,
-      riskState: 'Medium Risk'
+      riskState: 'th Risk'
     }
     localStorage.setItem(this.localStorageKey, this.key);
     //  }

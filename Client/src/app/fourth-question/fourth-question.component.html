@@ -1,23 +1,23 @@
 <div class="content">
     <h2 class="screen-title">
-        Up to your knowledge, have you been in presence of someone who had any of the below?
+        {{'fourth-question.title' | translate}}
     </h2>
     <div class="model-content">
         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
             [(ngModel)]="inPresence">
             <mat-radio-button class="example-radio-button" [value]="1" (change)="radioChange($event)">
-                Confirmed Coronavirus
+                {{'fourth-question.option1' | translate}}
             </mat-radio-button>
             <mat-radio-button class="example-radio-button" [value]="2" (change)="radioChange($event)">
-                Suspected Coronavirus
+                {{'fourth-question.option2' | translate}}
             </mat-radio-button>
             <mat-radio-button class="example-radio-button" [value]="3" (change)="radioChange($event)">
-                None
+                {{'fourth-question.option3' | translate}}
             </mat-radio-button>
         </mat-radio-group>
     </div>
 </div>
 <div class="button-container">
     <button mat-raised-button color="primary" class="action-btn" (click)="onClick($event)"
-        [disabled]="!isChosen">Next</button>
+        [disabled]="!isChosen">{{'fourth-question.action' | translate}}</button>
 </div>

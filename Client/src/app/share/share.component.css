@@ -27,10 +27,6 @@
   text-decoration: none;
 }
 
-.cancel-btn {
-  float: right;
-  cursor: pointer;
-}
 
 .content-info{
      min-height: 300px;

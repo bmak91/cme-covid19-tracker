@@ -25,10 +25,6 @@
   padding: 0px 10px;
 }
 
-.cancel-btn {
-  float: right;
-  cursor: pointer;
-}
 
 .content{
      min-height: 150px;

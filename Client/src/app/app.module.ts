@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { RouterModule } from '@angular/router';
 import { AppService } from './app.component.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MainScreenComponent } from './main-screen/main-screen.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FirstQuestionComponent } from './first-question/first-question.component';
@@ -19,6 +19,8 @@ import { ShareComponent } from './share/share.component';
 import { PhoneNumberComponent } from './phone-number/phone-number.component';
 import { HintComponent } from './shared/hint/hint.component';
 import { CommunityComponent } from './community/community.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -42,9 +44,20 @@ import { CommunityComponent } from './community/community.component';
     ReactiveFormsModule,
     RecaptchaModule,
     RouterModule.forRoot([]),
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

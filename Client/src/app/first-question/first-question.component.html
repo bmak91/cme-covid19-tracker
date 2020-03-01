@@ -1,20 +1,20 @@
 <div class="content">
     <h2 class="screen-title">
-        Are you having Coronavirus symptoms?
+        {{'first-question.title' | translate}}
     </h2>
     <div class="model-content">
         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
             [(ngModel)]="withSymptoms">
             <mat-radio-button class="example-radio-button" [value]="1" (change)="radioChange($event)">
-                Yes
+                {{'first-question.option1' | translate}}
             </mat-radio-button>
             <mat-radio-button class="example-radio-button" [value]="2" (change)="radioChange($event)">
-                No
+                {{'first-question.option2' | translate}}
             </mat-radio-button>
         </mat-radio-group>
     </div>
 </div>
 <div class="button-container">
     <button mat-raised-button color="primary" class="action-btn" (click)="onClick($event)"
-        [disabled]="!isChosen">Next</button>
+        [disabled]="!isChosen">{{'first-question.action' | translate}}</button>
 </div>

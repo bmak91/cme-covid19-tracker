@@ -29,11 +29,6 @@
   margin: 6%;
 }
 
-.cancel-btn {
-  float: right;
-  cursor: pointer;
-}
-
 .content-info{
      min-height: 300px;
 }
