@@ -1,0 +1,35 @@
+.screen-title {
+  margin: 6%;
+}
+
+.button-container {
+  bottom: 0px;
+  margin: 6%;
+  text-align: center;
+}
+
+.action-btn {
+  min-width: 100px;
+  margin: 0px 2%;
+}
+
+.model-content {
+  text-align: center;
+}
+
+.input-data {
+  width: 70%;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0px 10px;
+}
+
+.cancel-btn {
+  float: right;
+  cursor: pointer;
+}
+
+.content{
+     min-height: 150px;
+}

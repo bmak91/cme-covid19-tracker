@@ -2,126 +2,38 @@
 <div class="card-wrapper">
   <mat-card class="form-card">
     <mat-card-content>
-      <form [formGroup]="formGroup">
-        <mat-horizontal-stepper [linear]="true" #stepper *ngIf="!alreadySubmitted">
-          <mat-step [stepControl]="formGroup.get('community')">
-            <ng-template matStepLabel>Community</ng-template>
-            <h2 class="question">
-              Fill out your community name
-            </h2>
-            <mat-form-field class="input-data input-community">
-              <input matInput placeholder="My community" formControlName="community" required>
-            </mat-form-field>
-            <re-captcha (resolved)="resolved($event)" siteKey="myAppKey"></re-captcha>
-            <div class="button-container">
-              <button mat-raised-button color="primary" matStepperNext color="primary" class="f-r">Next</button>
-            </div>
-          </mat-step>
-          <mat-step [stepControl]="formGroup.get('isPositive')">
-            <ng-template matStepLabel>Is positive</ng-template>
-            <h2 class="question">
-              Have you been yourself assessed positive for coronavirus or under quarantine?
-            </h2>
-            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-              formControlName="isPositive">
-              <mat-radio-button class="example-radio-button" [value]="true">
-                YES
-              </mat-radio-button>
-              <mat-radio-button class="example-radio-button" [value]="false">
-                NO
-              </mat-radio-button>
-            </mat-radio-group>
-            <div class="button-container">
-              <button mat-raised-button color="primary" matStepperNext class="f-r" color="primary">Next</button>
-              <button mat-raised-button color="primary" matStepperPrevious class="f-l" color="primary">Back</button>
-            </div>
-          </mat-step>
-          <mat-step [stepControl]="formGroup.get('inContactInfCountries')">
-            <ng-template matStepLabel>In Contact with people coming from infected areas</ng-template>
-            <h2 class="question">
-              Have you been in contact with people coming from: China, Italy, South Korea,Iran and Japan during the past
-              30 days?
-            </h2>
-            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-              formControlName="inContactInfCountries">
-              <mat-radio-button class="example-radio-button" [value]="true">
-                YES
-              </mat-radio-button>
-              <mat-radio-button class="example-radio-button" [value]="false">
-                NO
-              </mat-radio-button>
-            </mat-radio-group>
-            <div class="button-container">
-              <button mat-raised-button color="primary" matStepperNext class="f-r">Next</button>
-              <button mat-raised-button color="primary" matStepperPrevious class="f-l">Back</button>
-            </div>
-          </mat-step>
-          <mat-step [stepControl]="formGroup.get('inContactInfPeople')">
-            <ng-template matStepLabel>In Contact with Infected People</ng-template>
-            <h2 class="question">
-              Have you been in contact with suspicious (under quarantine) or confirmed cases of coronavirus?
-            </h2>
-            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-              formControlName="inContactInfPeople">
-              <mat-radio-button class="example-radio-button" [value]="true">
-                YES
-              </mat-radio-button>
-              <mat-radio-button class="example-radio-button" [value]="false">
-                NO
-              </mat-radio-button>
-            </mat-radio-group>
-            <div class="button-container">
-              <button mat-raised-button color="primary" matStepperNext class="f-r">Next</button>
-              <button mat-raised-button color="primary" matStepperPrevious class="f-l">Back</button>
-            </div>
-          </mat-step>
-          <mat-step [stepControl]="formGroup.get('phoneNumber')">
-            <ng-template matStepLabel>Phone number</ng-template>
-            <h2 class="question">
-              If you want to receive risk assessment notification in the future, please fill in your phone number</h2>
-            <mat-form-field class="input-data">
-              <input matInput formControlName="phoneNumber">
-            </mat-form-field>
-            <div class="button-container">
-              <button mat-raised-button color="primary" (click)="onSubmit(stepper)" class="f-r">Done</button>
-              <button mat-raised-button color="primary" matStepperPrevious class="f-l">Back</button>
-            </div>
+      <mat-horizontal-stepper [linear]="true" #stepper>
+        <div *ngIf="!alreadySubmitted">
+          <mat-step>
+            <app-welcome (onNext)="onStepperNext(stepper)"></app-welcome>
           </mat-step>
           <mat-step>
-            <ng-template matStepLabel>Done</ng-template>
-            <h2 class="thanks">
-              Thanks for your time.
-            </h2>
-            <img src="../assets/images/hand-shaking.PNG" class="thanks-img">
-            <h2 class="question">
-              You can share this survey using the following link:
-            </h2>
-            <span class="link">{{getSharableLink()}}</span>
-            <div class="button-container">
-
-              <button mat-raised-button color="primary" class="f-r"><a [href]="wtspUrl"
-                  data-text="Take a quick survey about Coronavirus:" class="wa_btn wa_btn_s">Share</a></button>
-            </div>
+            <app-first-question (onNext)="onQuestNext($event, stepper)"></app-first-question>
           </mat-step>
-        </mat-horizontal-stepper>
-        <mat-horizontal-stepper [linear]="true" #stepper *ngIf="alreadySubmitted">
           <mat-step>
-            <ng-template matStepLabel>Done</ng-template>
-            <h2 class="thanks">
-              Thnks for your interest! The survey was submitted previously!
-            </h2>
-            <img src="../assets/images/hand-shaking.PNG" class="thanks-img">
-            <h2 class="question">
-              You can share this survey using the following link:
-            </h2>
-            <span class="link">{{getSharableLink()}}</span>
-            <div class="button-container">
-              <button mat-raised-button color="primary" class="f-r"><a [href]="wtspUrl"
-                  data-text="Take a quick survey about Coronavirus:" class="wa_btn wa_btn_s">Share</a></button>
-            </div>
+            <app-second-question (onNext)="onQuestNext($event, stepper)"></app-second-question>
           </mat-step>
-        </mat-horizontal-stepper>
-      </form>
+          <mat-step>
+            <app-third-question (onNext)="onQuestNext($event, stepper)"></app-third-question>
+          </mat-step>
+          <mat-step>
+            <app-fourth-question (onNext)="onFinalQuestNext($event, stepper)"></app-fourth-question>
+          </mat-step>
+          <mat-step>
+            <app-phone-number (onNext)="onPhoneNumberNext($event, stepper)"></app-phone-number>
+          </mat-step>
+          <mat-step>
+            <app-share [link]="sharableLink" (onNext)="onStepperNext(stepper)"></app-share>
+          </mat-step>
+          <mat-step>
+            <app-community (onNext)="onCommunityNext($event, stepper)"></app-community>
+          </mat-step>
+        </div>
+        <mat-step>
+          <app-main-screen [link]="sharableLink" [info]="info" (onNext)="onRestartStepper(stepper)"></app-main-screen>
+        </mat-step>
+      </mat-horizontal-stepper>
+      <app-hint-section *ngIf="showHint"></app-hint-section>
     </mat-card-content>
   </mat-card>
 </div>

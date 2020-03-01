@@ -1,0 +1,23 @@
+<div class="content">
+    <h2 class="screen-title">
+        Have you been tested positive for coronavirus or under quarantine?
+    </h2>
+    <div class="model-content">
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            [(ngModel)]="isPositive">
+            <mat-radio-button class="example-radio-button" [value]="1" (change)="radioChange($event)">
+                Tested Positive
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" [value]="2" (change)="radioChange($event)">
+                Under quarantine
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" [value]="3" (change)="radioChange($event)">
+                None
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+</div>
+<div class="button-container">
+    <button mat-raised-button color="primary" class="action-btn" (click)="onClick($event)"
+        [disabled]="!isChosen">Next</button>
+</div>

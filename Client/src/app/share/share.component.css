@@ -1,0 +1,37 @@
+.screen-title {
+  margin: 6%;
+}
+
+.button-container {
+  bottom: 0px;
+  margin: 6%;
+  text-align: center;
+}
+
+.text {
+  margin: 6%;
+}
+
+.action-btn {
+  min-width: 100px;
+  margin: 0px 2%;
+}
+
+.link {
+  font-style: italic;
+  word-break: break-all;
+}
+
+.wa_btn {
+  color: #fff;
+  text-decoration: none;
+}
+
+.cancel-btn {
+  float: right;
+  cursor: pointer;
+}
+
+.content-info{
+     min-height: 300px;
+}

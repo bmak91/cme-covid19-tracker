@@ -1,0 +1,21 @@
+.screen-title {
+   margin: 6%;
+}
+
+.button-container {
+  bottom: 0px;
+  margin: 6%;
+  text-align: center;
+}
+
+.text {
+    margin: 6%;
+  }
+  
+.action-btn{
+    min-width: 150px;
+}
+
+:host ::ng-deep re-captcha > div {
+    margin-left: 10%;
+  }

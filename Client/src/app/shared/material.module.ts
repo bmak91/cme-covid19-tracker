@@ -41,5 +41,6 @@ import {MatRadioModule} from '@angular/material/radio';
     MatStepperModule,
     MatRadioModule
   ],
+  declarations: [],
 })
 export class CustomMaterialModule { }

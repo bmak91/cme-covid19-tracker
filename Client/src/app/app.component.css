@@ -1,21 +1,19 @@
 .card-wrapper {
   width: 100%;
-  display: flex;
+  display: block;
   height: 100%;
 }
 
 .form-card {
   margin: auto;
-  min-height: 430px;
-  width: 65%;
-  height: 60%;
-  max-width: 700px;
-  max-height: 600px;
-  min-width: 350px;
+  max-width: 550px;
+  max-height: 700px;
+  height: -webkit-fill-available;
   -webkit-box-align: center;
   align-items: center;
   border-radius: 6px;
   box-shadow: 8px 8px 40px 5px black;
+  background-color: #eaf1f3;
 }
 
 mat-card-content.mat-card-content {
@@ -33,25 +31,13 @@ mat-card-content.mat-card-content {
   display: none;
 }
 
-:host ::ng-deep .mat-horizontal-content-container {
-  text-align: center;
+:host ::ng-deep mat-horizontal-stepper.mat-stepper-horizontal{
+  background-color: #eaf1f3;
 }
 
 mat-card.mat-card {
   vertical-align: middle;
   display: flex;
-}
-
-.f-r {
-  float: right;
-}
-
-.f-l {
-  float: left;
-}
-
-.question {
-  margin-bottom: 10%;
 }
 
 .button-container {
@@ -62,16 +48,8 @@ mat-radio-button {
   margin: 0px 7% 0px 7%;
 }
 
-.input-data {
-  width: 70%;
-}
-
 .mat-raised-button.mat-primary {
   background-color: #2a4116;
-}
-
-:host ::ng-deep re-captcha > div {
-  margin: auto;
 }
 
 .input-community {
@@ -93,12 +71,6 @@ mat-radio-button {
   width: 50%;
 }
 
-.link {
-  font-style: italic;
-  word-break: break-all;
-}
 
-.wa_btn{
-  color: #fff;
-  text-decoration: none;
-}
+
+

@@ -1,0 +1,16 @@
+.text-hint {
+  font-style: italic;
+}
+
+.text {
+  margin: 6%;
+}
+
+a.privacy-policy-link {
+  cursor: pointer;
+  color: blue;
+}
+
+a.privacy-policy-link:hover {
+  text-decoration: underline;
+}

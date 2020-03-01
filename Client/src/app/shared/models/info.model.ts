@@ -1,6 +1,6 @@
 export class Info {
-    community: string;
-    communityId?: string;
+    connNb: number;
+    riskState: string;
 }
 
 export class Community {
@@ -10,7 +10,6 @@ export class Community {
 
 export class Survey {
     key: string;
-    community: Community;
-    answers: boolean[];
-    phone: string
+    existingKey: string;
+    answers: number[];
 }
