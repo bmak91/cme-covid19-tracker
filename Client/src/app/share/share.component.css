@@ -3,7 +3,7 @@
   top: 0px;
   background-color: #ebedf9;
   padding: 60px 30px;
-  height: 100%;
+  height: -webkit-fill-available;
   width: -webkit-fill-available;
 }
 

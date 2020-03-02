@@ -13,7 +13,7 @@ export class AppService {
 
     sendReference(hash?: string, key?: string): Observable<any> {
         let endPoint = hash ? `info/${hash}` : 'info';
-        return this.http.post(`${environment.baseUrl}/${endPoint}`, key ? { existingKey: key } : null, { headers: this.defaultHeaders, observe: 'response' });
+        return this.http.post(`${environment.baseUrl}/${endPoint}`, key ? { existingKey: key } : null, { headers: this.defaultHeaders, observe: 'response', responseType: 'text' });
     }
 
     save(survey: Survey): Observable<any> {

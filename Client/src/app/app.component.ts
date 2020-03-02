@@ -63,11 +63,9 @@ export class AppComponent implements OnInit {
 
   getInfo() {
     this.appService.sendReference(this.referenceKey, this.key?.privateKey).subscribe(item => {
-      if (item) {
-        this.info = {
-          connNb: 0,
-          riskState: 'Normal Risk'
-        }
+      this.info = {
+        connNb: 0,
+        riskState: 'Normal Risk'
       }
     });
   }
