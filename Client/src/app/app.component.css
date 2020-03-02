@@ -1,3 +1,7 @@
+.body{
+  font-family: monospace;
+}
+
 .card-wrapper {
   width: 100%;
   display: block;
@@ -5,6 +9,7 @@
 }
 
 .form-card {
+  padding: 0px;
   margin: auto;
   max-width: 550px;
   max-height: 700px;
@@ -20,18 +25,15 @@ mat-card-content.mat-card-content {
   width: 100%;
 }
 
-.background-img {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  filter: brightness(50%);
-}
-
 :host ::ng-deep .mat-horizontal-stepper-header-container {
   display: none;
 }
 
-:host ::ng-deep mat-horizontal-stepper.mat-stepper-horizontal{
+:host ::ng-deep .mat-horizontal-content-container{
+  padding: 0px;
+}
+
+:host ::ng-deep mat-horizontal-stepper.mat-stepper-horizontal {
   background-color: #eaf1f3;
 }
 
@@ -44,33 +46,7 @@ mat-card.mat-card {
   margin-top: 10%;
 }
 
-mat-radio-button {
-  margin: 0px 7% 0px 7%;
+.card-wrapper.rtl {
+  text-align: right;
+  direction: rtl;
 }
-
-.mat-raised-button.mat-primary {
-  background-color: #2a4116;
-}
-
-.input-community {
-  margin-bottom: 10%;
-}
-
-:host ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: #2a4116;
-}
-:host ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle {
-  background-color: #2a4116;
-}
-
-.thanks {
-  color: #2a4116;
-}
-
-.thanks-img {
-  width: 50%;
-}
-
-
-
-

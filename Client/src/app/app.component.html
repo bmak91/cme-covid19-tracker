@@ -1,5 +1,4 @@
-<img src="../assets/images/coronavirus.jpg" class="background-img">
-<div class="card-wrapper">
+<div class="card-wrapper" [ngClass]="rtl ? 'rtl' : ''">
   <mat-card class="form-card">
     <mat-card-content>
       <mat-horizontal-stepper [linear]="true" #stepper>

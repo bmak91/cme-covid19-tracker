@@ -1,39 +1,65 @@
-.screen-title {
-  margin: 6%;
+.header-content {
+  position: absolute;
+  top: 0px;
+  color: white;
+  background-color: #485dd6;
+  padding: 60px 30px;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+
+.title-text{
+  font-size: 16px;
+  margin: 40px 0px;
+}
+
+.screen-main-title {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.screen-sub-title{
+  font-size: 26px;
+}
+
+button.action-btn {
+  width: 100%;
+  border-radius: 2px;
+  margin: 5px 0px;
 }
 
 .button-container {
+  position: absolute;
   bottom: 0px;
-  margin: 6%;
-  text-align: center;
+  margin: 30px;
+  width: -webkit-fill-available;
 }
 
-.action-btn {
-  min-width: 100px;
-  margin: 0px 2%;
-}
-
-.model-content {
-  text-align: center;
+.bckg-blue {
+  background-color: #2ebcce !important;
 }
 
 .input-data {
-  width: 70%;
+  width: 100%;
 }
 
 :host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
   padding: 0px 10px;
 }
 
-.text {
-  margin: 6%;
+:host ::ng-deep .mat-form-field-wrapper{
+  padding-bottom: 0px;
 }
 
-.cancel-btn {
-  float: right;
-  cursor: pointer;
+:host ::ng-deep .mat-form-field-underline{
+  display: none;
 }
 
-.content-info{
-     min-height: 300px;
+:host ::ng-deep .mat-input-element{
+  caret-color: white;
+}
+
+.model-content{
+  border: 2px solid white;
+  margin: 5px 0px;
 }

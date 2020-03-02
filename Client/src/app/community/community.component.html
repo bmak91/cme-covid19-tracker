@@ -1,22 +1,22 @@
-<div class="content-info">
-    <h2 class="screen-title">
-        Want to help more?
-        <span class="cancel-btn" (click)="onClick($event)">X</span>
-    </h2>
-    <div class="text">
-        Associate your identity with different tags or communities by simply typing below the name of the place where
-        you
-        work, study or live:
+<div class="header-content">
+    <div class="screen-main-title">
+        {{'community.title' | translate}}
+    </div>
+
+    <div class="title-text">
+        {{'community.text1' | translate}}
     </div>
     <div class="model-content">
         <mat-form-field class="input-data" appearance="fill">
             <input matInput [(ngModel)]="community">
         </mat-form-field>
-        <div>
-            Add more tags comma separated
-        </div>
+    </div>
+    <div>
+        {{'community.text2' | translate}}
     </div>
 </div>
 <div class="button-container">
-    <button mat-raised-button color="primary" class="action-btn" (click)="onClick($event)">You rock!</button>
+
+    <button mat-raised-button color="primary" class="action-btn bckg-blue"
+        (click)="onClick($event)">{{'community.action' | translate}}</button>
 </div>

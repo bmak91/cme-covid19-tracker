@@ -1,23 +1,13 @@
-<div class="content">
-    <h2 class="screen-title">
-        Up to your knowledge, have you been in presence of someone who had any of the below?
-    </h2>
-    <div class="model-content">
-        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-            [(ngModel)]="inPresence">
-            <mat-radio-button class="example-radio-button" [value]="1" (change)="radioChange($event)">
-                Confirmed Coronavirus
-            </mat-radio-button>
-            <mat-radio-button class="example-radio-button" [value]="2" (change)="radioChange($event)">
-                Suspected Coronavirus
-            </mat-radio-button>
-            <mat-radio-button class="example-radio-button" [value]="3" (change)="radioChange($event)">
-                None
-            </mat-radio-button>
-        </mat-radio-group>
+<div class="header-content">
+    <div class="screen-main-title">
+        {{'fourth-question.title' | translate}}
     </div>
-</div>
-<div class="button-container">
-    <button mat-raised-button color="primary" class="action-btn" (click)="onClick($event)"
-        [disabled]="!isChosen">Next</button>
+    <div class="button-container">
+        <button mat-raised-button color="primary" class="action-btn bckg-orange" (click)="onClick('1')">
+            {{'fourth-question.option1' | translate}}</button>
+        <button mat-raised-button color="primary" class="action-btn bckg-blue"
+            (click)="onClick('2')">{{'fourth-question.option2' | translate}}</button>
+        <button mat-raised-button color="primary" class="action-btn bckg-none"
+            (click)="onClick('0')">{{'fourth-question.option3' | translate}}</button>
+    </div>
 </div>

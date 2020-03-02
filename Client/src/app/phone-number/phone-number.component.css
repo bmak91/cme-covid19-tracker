@@ -1,35 +1,55 @@
-.screen-title {
-  margin: 6%;
+.header-content {
+  position: absolute;
+  top: 0px;
+  color: white;
+  background-color: #485dd6;
+  padding: 60px 30px;
+  height: 100%;
+  width: -webkit-fill-available;
+}
+
+.screen-main-title {
+  font-size: 26px;
+  font-weight: 700;
 }
 
 .button-container {
-  bottom: 0px;
-  margin: 6%;
-  text-align: center;
+  width: -webkit-fill-available;
+  padding: 18% 0px;
 }
 
-.action-btn {
-  min-width: 100px;
-  margin: 0px 2%;
+button.action-btn {
+  width: 100%;
+  border-radius: 2px;
+  margin: 5px 0px;
+  height: 40px;
 }
 
-.model-content {
-  text-align: center;
+.bckg-blue {
+  background-color: #2ebcce !important;
 }
 
 .input-data {
-  width: 70%;
+  width: 100%;
 }
 
 :host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
   padding: 0px 10px;
 }
 
-.cancel-btn {
-  float: right;
-  cursor: pointer;
+:host ::ng-deep .mat-form-field-wrapper{
+  padding-bottom: 0px;
 }
 
-.content{
-     min-height: 150px;
+:host ::ng-deep .mat-form-field-underline{
+  display: none;
+}
+
+:host ::ng-deep .mat-input-element{
+  caret-color: white;
+}
+
+.model-content{
+  border: 2px solid white;
+  margin: 5px 0px;
 }

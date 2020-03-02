@@ -25,6 +25,7 @@ export class MainScreenComponent implements OnInit, OnChanges {
   }
 
   setResultColor() {
+    console.log(this.info);
     if (this.info) {
       switch (this.info.riskState) {
         case 'Low Risk': {
@@ -35,7 +36,7 @@ export class MainScreenComponent implements OnInit, OnChanges {
           this.backgroundState = 'orange-bckg'
           break;
         }
-        case 'Hight Risk': {
+        case 'High Risk': {
           this.backgroundState = 'red-bckg'
           break;
         }

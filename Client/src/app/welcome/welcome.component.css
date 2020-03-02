@@ -1,21 +1,67 @@
-.screen-title {
-   margin: 6%;
+.header-content{
+  position: absolute;
+  top: 0px;
+  color: white;
+  background-color: #485dd6;
+  padding: 60px 30px;
+  height: 30%;
+  width: -webkit-fill-available;
 }
 
-.button-container {
+.screen-main-title{
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.screen-sub-title{
+  font-size: 26px;
+}
+
+.seperator{
+  background-color: white;
+  width: 10%;
+  height: 2px;
+  margin: 20px 0px;
+}
+
+.title-text{
+  font-size: 16px;
+}
+
+.body-box{
+  background-color: white;
+  position: absolute;
+  margin: 30px;
+  width: -webkit-fill-available;
+  padding: 35px;
+  color: #485dd6;
+  font-family: monospace;
+  top: 40%;
+}
+
+.body-box-text-imp{
+  font-weight: bold;
+}
+
+.button-container{
+  position: absolute;
   bottom: 0px;
-  margin: 6%;
-  text-align: center;
+  margin: 30px;
+  width: -webkit-fill-available;
 }
 
-.text {
-    margin: 6%;
-  }
-  
-.action-btn{
-    min-width: 150px;
+button.action-btn{
+  width: 100%;
+  border-radius: 2px;
 }
 
-:host ::ng-deep re-captcha > div {
-    margin-left: 10%;
-  }
+.recaptcha-section{
+  width: 100%;
+  position: absolute;
+  display: flex;
+  bottom: 90px;
+}
+
+re-captcha{
+  margin: auto
+}

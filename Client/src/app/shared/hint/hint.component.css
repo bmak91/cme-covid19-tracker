@@ -1,9 +1,18 @@
-.text-hint {
-  font-style: italic;
+:host {
+  position: absolute;
+  padding: 20px;
+  bottom: 0px;
+  font-size: 12px;
+  background-color: #ebedf9;
 }
 
-.text {
-  margin: 6%;
+.text-hint {
+  font-style: italic;
+  opacity: 70%;
+}
+
+.text2 {
+  margin-top: 15px;
 }
 
 a.privacy-policy-link {
