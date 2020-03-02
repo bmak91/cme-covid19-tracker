@@ -10,7 +10,7 @@ const handler = async (req, res) => {
   let { id: communityId, name } = community;
 
   const { getPersonByKey } = makePersonQueries(db);
-
+console.log(name);
   try {
     let person = key && (await getPersonByKey(key));
     if (!person) return res.status(404).end();

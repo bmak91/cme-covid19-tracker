@@ -9,8 +9,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatIconModule,
     MatProgressSpinnerModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
+    MatAutocompleteModule,
+    MatChipsModule
   ],
   exports: [
     CommonModule,
@@ -39,7 +43,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatIconModule,
     MatProgressSpinnerModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
+    MatAutocompleteModule,
+    MatChipsModule
   ],
   declarations: [],
 })

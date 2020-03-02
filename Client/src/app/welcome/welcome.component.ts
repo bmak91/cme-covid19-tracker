@@ -25,6 +25,5 @@ export class WelcomeComponent implements OnInit {
     else {
       this.enableNext = false;
     }
-    console.log(`Resolved captcha with response: ${captchaResponse}`);
   }
 }

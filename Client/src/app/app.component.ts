@@ -136,10 +136,14 @@ export class AppComponent implements OnInit {
     this.onStepperNext(stepper);
   }
 
-  saveCommunity(communityName) {
-    let obj = { key: this.key.publicKey, community: { communityId: null, community: communityName } }
-    this.appService.saveCommunity(obj).subscribe(x => {
-    });
+  saveCommunity(communities) {
+    if (communities && communities.length > 0) {
+      communities.forEach(element => {
+        let obj = { key: this.key.privateKey, community: element }
+        this.appService.saveCommunity(obj).subscribe(x => {
+        });
+      });
+    }
   }
 
   savePhoneNumber(phoneNumber) {

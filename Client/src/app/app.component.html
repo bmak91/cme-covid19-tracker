@@ -1,7 +1,7 @@
 <div class="card-wrapper" [ngClass]="rtl ? 'rtl' : ''">
   <mat-card class="form-card">
     <mat-card-content>
-      <mat-horizontal-stepper [linear]="true" #stepper [direction]='rtl'>
+      <mat-horizontal-stepper [linear]="true" #stepper>
         <div *ngIf="!alreadySubmitted">
           <mat-step>
             <app-welcome (onNext)="onStepperNext(stepper)"></app-welcome>
@@ -25,7 +25,7 @@
             <app-share [link]="sharableLink" (onNext)="onStepperNext(stepper)"></app-share>
           </mat-step>
           <mat-step>
-            <app-community (onNext)="onCommunityNext($event, stepper)"></app-community>
+            <app-community (onNext)="onCommunityNext($event, stepper)" [dir]="rtl ? 'rtl': 'ltr'"></app-community>
           </mat-step>
         </div>
         <mat-step>

@@ -55,7 +55,8 @@
         "text1": "United we win! Would you like to share with your network to check in on Coronavirus Busters?",
         "text2": "You can also update your data by taking the 10 seconds survey.",
         "action1": "Invite",
-        "action2": "Take survey"
+        "action2": "Take survey again",
+        "body": "Collecting data..."
     },
     "hint":{
         "text1": "If there are any changes in your information you can update it by resubmitting your responses",
