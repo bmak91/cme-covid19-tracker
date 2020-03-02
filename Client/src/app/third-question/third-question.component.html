@@ -1,20 +1,11 @@
-<div class="content">
-    <h2 class="screen-title">
+<div class="header-content">
+    <div class="screen-main-title">
         {{'third-question.title' | translate}}
-    </h2>
-    <div class="model-content">
-        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-            [(ngModel)]="inContact">
-            <mat-radio-button class="example-radio-button" [value]="1" (change)="radioChange($event)">
-                {{'third-question.option1' | translate}}
-            </mat-radio-button>
-            <mat-radio-button class="example-radio-button" [value]="2" (change)="radioChange($event)">
-                {{'third-question.option2' | translate}}
-            </mat-radio-button>
-        </mat-radio-group>
     </div>
-</div>
-<div class="button-container">
-    <button mat-raised-button color="primary" class="action-btn" (click)="onClick($event)"
-        [disabled]="!isChosen">{{'third-question.action' | translate}}</button>
+    <div class="button-container">
+        <button mat-raised-button color="primary" class="action-btn bckg-orange"
+            (click)="onClick('0')">{{'third-question.option1' | translate}}</button>
+        <button mat-raised-button color="primary" class="action-btn bckg-blue"
+            (click)="onClick('1')">{{'third-question.option2' | translate}}</button>
+    </div>
 </div>

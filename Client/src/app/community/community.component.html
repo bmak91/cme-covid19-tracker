@@ -1,21 +1,22 @@
-<div class="content-info">
-    <h2 class="screen-title">
+<div class="header-content">
+    <div class="screen-main-title">
         {{'community.title' | translate}}
-        <span class="cancel-btn" (click)="onClick($event)">X</span>
-    </h2>
-    <div class="text">
+    </div>
+
+    <div class="title-text">
         {{'community.text1' | translate}}
     </div>
     <div class="model-content">
         <mat-form-field class="input-data" appearance="fill">
             <input matInput [(ngModel)]="community">
         </mat-form-field>
-        <div>
-            {{'community.text2' | translate}}
-        </div>
+    </div>
+    <div>
+        {{'community.text2' | translate}}
     </div>
 </div>
 <div class="button-container">
-    <button mat-raised-button color="primary" class="action-btn"
+
+    <button mat-raised-button color="primary" class="action-btn bckg-blue"
         (click)="onClick($event)">{{'community.action' | translate}}</button>
 </div>

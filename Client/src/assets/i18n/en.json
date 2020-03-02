@@ -1,12 +1,14 @@
 {
     "welcome": {
-        "title": "Coronavirus Busters",
+        "maintitle": "Coronavirus",
+        "subtitle": "Busters",
         "text1": "Welcome to the Coronavirus Busters crowdsourcing platform.",
-        "text2": "Take a 10 seconds survey to protect yourself and help saving other lives.",
+        "text2part1": "Take a 10 seconds survey",
+        "text2part2": "to protect yourself and help saving other lives.",
         "action": "Take survey"
     },
     "first-question": {
-        "title": "Are you having Coronavirus symptoms?",
+        "title": "Are you having flu symptoms with fever?",
         "option1": "Yes",
         "option2": "No",
         "action": "Next"
@@ -39,7 +41,8 @@
         "title": "Thank you!",
         "text1": " Share with your friends, colleagues and family; encourage them to check in and let’s go viral to fight coronavirus!",
         "text2": "The wider you disseminate Coronavirus Busters, the better you can assess threats around you and take preventive measures.",
-        "action": "Share"
+        "action": "Share",
+        "done": "Done"
     },
     "community": {
         "title": "Want to help more?",

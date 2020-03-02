@@ -7,8 +7,6 @@ import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/cor
 })
 export class SecondQuestionComponent implements OnInit {
 
-  isPositive: boolean;
-  isChosen: boolean = false;
   @Output() onNext: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
@@ -16,13 +14,7 @@ export class SecondQuestionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  radioChange(event) {
-    this.isChosen = true;
-  }
-
-  onClick(event) {
-    this.onNext.emit(this.isPositive);
-    this.isChosen = false;
-    this.isPositive = null;
+  onClick(value) {
+    this.onNext.emit(value);
   }
 }

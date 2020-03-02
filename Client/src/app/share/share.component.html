@@ -1,17 +1,21 @@
-<div class="content-info">
-    <h2 class="screen-title">
+<div class="header-content">
+
+    <div class="screen-main-title">
         {{'share.title' | translate}}
-        <span class="cancel-btn" (click)="onClick($event)">X</span>
-    </h2>
-    <div class="text">
+    </div>
+
+    <div class="screen-sub-title">
         {{'share.text1' | translate}}
     </div>
-    <div class="text">
+    <div class="title-text">
         {{'share.text2' | translate}}
     </div>
+
 </div>
 <div class="button-container">
     <button mat-raised-button color="primary" class="action-btn"><a [href]="wtspUrl + link"
             data-text="Take a quick survey about Coronavirus:" class="wa_btn wa_btn_s">
             {{'share.action' | translate}}</a></button>
+    <button mat-raised-button color="primary" class="action-btn bckg-blue"
+        (click)="onClick($event)">{{'share.done' | translate}}</button>
 </div>

@@ -1,23 +1,33 @@
-<div class="content-info">
-    <h2 class="screen-title">
+<div class="header-content">
+    <div class="screen-main-title">
         {{'main-screen.title' | translate}}
-    </h2>
-    <div class="result-box {{backgroundState}}">
-        <div>{{info?.connNb}} Connections</div>
-        <div class="risk">{{info?.riskState}}</div>
     </div>
+</div>
+<div class="body-box {{backgroundState}}">
+    <div class="body-box-text">
+        {{info?.connNb}}
+    </div>
+    <div class="body-box-text2">
+        Connections
+    </div>
+    <div class="body-box-text-imp">
+        {{info?.riskState}}
+    </div>
+</div>
+<div class="data-section">
+
     <div class="text">
         {{'main-screen.text1' | translate}}
     </div>
-    <div class="text">
+    <div class="text2">
         {{'main-screen.text2' | translate}}
     </div>
 </div>
+
 <div class="button-container">
     <button mat-raised-button color="primary" class="action-btn"><a [href]="wtspUrl + link"
-            data-text="Take a quick survey about Coronavirus:"
-            class="wa_btn wa_btn_s">{{'main-screen.action1' | translate}}</a></button>
-    <button mat-raised-button color="primary" class="action-btn"
+            data-text="Take a quick survey about Coronavirus:" class="wa_btn wa_btn_s">
+            {{'main-screen.action1' | translate}}</a></button>
+    <button mat-raised-button color="primary" class="action-btn bckg-blue"
         (click)="onClick($event)">{{'main-screen.action2' | translate}}</button>
-
 </div>

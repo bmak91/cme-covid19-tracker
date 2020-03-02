@@ -1,20 +1,44 @@
-.screen-title {
-  margin: 6%;
+.header-content{
+  position: absolute;
+  top: 0px;
+  background-color: #ebedf9;
+  padding: 60px 30px;
+  height: 100%;
+  width: -webkit-fill-available;
+}
+
+.screen-main-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #3f51b5;
+}
+
+.screen-sub-title {
+  font-size: 24px;
+  margin: 20px 0px;
+  color: #3f51b5;
+}
+
+.title-text {
+  font-size: 16px;
+  font-style: italic;
+}
+
+button.action-btn {
+  width: 100%;
+  border-radius: 2px;
+  margin: 5px 0px;
 }
 
 .button-container {
+  position: absolute;
   bottom: 0px;
-  margin: 6%;
-  text-align: center;
+  margin: 30px;
+  width: -webkit-fill-available;
 }
 
-.text {
-  margin: 6%;
-}
-
-.action-btn {
-  min-width: 100px;
-  margin: 0px 2%;
+.bckg-blue {
+  background-color: #2ebcce !important;
 }
 
 .link {
@@ -25,9 +49,4 @@
 .wa_btn {
   color: #fff;
   text-decoration: none;
-}
-
-
-.content-info{
-     min-height: 300px;
 }

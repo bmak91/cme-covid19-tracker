@@ -1,20 +1,83 @@
-.screen-title {
-  margin: 6%;
+.header-content{
+  position: absolute;
+  top: 0px;
+  color: white;
+  background-color: #485dd6;
+  padding: 60px 30px;
+  height: 25%;
+  width: -webkit-fill-available;
 }
 
-.button-container {
+.screen-main-title{
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.screen-sub-title{
+  font-size: 26px;
+}
+
+.title-text{
+  font-size: 16px;
+}
+
+.body-box{
+  position: absolute;
+  margin: 30px;
+  width: -webkit-fill-available;
+  padding: 35px;
+  color: white;
+  font-family: monospace;
+  top: 20%;
+}
+
+.body-box-text{
+  font-size: 40px;
+}
+
+.body-box-text2{
+  font-size: 36px;
+}
+
+.body-box-text-imp{
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.button-container{
+  position: absolute;
   bottom: 0px;
-  margin: 6%;
-  text-align: center;
+  margin: 30px;
+  width: -webkit-fill-available;
 }
 
-.text {
-  margin: 6%;
+button.action-btn{
+  width: 100%;
+  border-radius: 2px;
+  margin: 5px 0px;
 }
 
-.action-btn {
-  min-width: 100px;
-  margin: 0px 2%;
+.data-section{
+  position: absolute;
+  bottom: 100px;
+  height: 115px;
+  font-style: italic;
+  padding: 0px 30px;
+  opacity: 70%;
+}
+
+.text2{
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.bckg-blue {
+  background-color: #2ebcce !important;
+}
+
+.link {
+  font-style: italic;
+  word-break: break-all;
 }
 
 .wa_btn {
@@ -22,36 +85,18 @@
   text-decoration: none;
 }
 
-.content-info{
-     min-height: 300px;
-}
-
-.result-box{
-  width: fit-content;
-  padding: 5%;
-  box-shadow: 1px 1px 10px 0px #6e7577;
-  margin: auto;
-  color: white;
-  font-size: 16px;
-  border-radius: 5px;
-}
-
-.risk{
-  font-weight: 600;
-}
-
 .red-bckg{
-  background-color: #d01818;
+  background-color: #ff2d1d;
 }
 
 .orange-bckg{
-  background-color: orange;
+  background-color: #ff6e10;
 }
 
 .yellow-bckg{
-  background-color: #e8d103;
+  background-color: #ffb214;
 }
 
 .black-bckg{
-  background-color: black;
+  background-color: #3646a2;
 }
