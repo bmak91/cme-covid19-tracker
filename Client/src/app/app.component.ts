@@ -61,7 +61,7 @@ export class AppComponent implements OnInit {
     console.log('getting info');
     this.info = {
       connNb: 35,
-      riskState: 'Normal'
+      riskState: 'Medium Risk'
     }
   }
 
@@ -90,7 +90,7 @@ export class AppComponent implements OnInit {
     this.key = 'myKey';
     this.info = {
       connNb: 35,
-      riskState: 'th Risk'
+      riskState: 'Medium Risk'
     }
     localStorage.setItem(this.localStorageKey, this.key);
     //  }
