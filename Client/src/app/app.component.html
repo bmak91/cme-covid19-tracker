@@ -18,7 +18,7 @@
           <mat-step>
             <app-fourth-question (onNext)="onFinalQuestNext($event, stepper)"></app-fourth-question>
           </mat-step>
-          <mat-step>
+          <mat-step *ngIf="!updateMode">
             <app-phone-number (onNext)="onPhoneNumberNext($event, stepper)"></app-phone-number>
           </mat-step>
           <mat-step>

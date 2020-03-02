@@ -6,18 +6,25 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AppService {
+    defaultHeaders = new Headers({ 'Content-Type': 'application/json' }) as any;
+
     constructor(private http: HttpClient) {
     }
 
     sendReference(hash?: string, key?: string): Observable<any> {
-        const headers = new Headers({ 'Content-Type': 'application/json' }) as any;
         let endPoint = hash ? `info/${hash}` : 'info';
-        return this.http.post(`${environment.baseUrl}/${endPoint}`, key ? { existingKey: key } : null, { headers: headers, observe: 'response' });
+        return this.http.post(`${environment.baseUrl}/${endPoint}`, key ? { existingKey: key } : null, { headers: this.defaultHeaders, observe: 'response' });
     }
 
     save(survey: Survey): Observable<any> {
-        const headers = new Headers({ 'Content-Type': 'application/json' }) as any;
-        return this.http.post(`${environment.baseUrl}/save`, survey, { headers: headers, observe: 'response' });
+        return this.http.post(`${environment.baseUrl}/save`, survey, { headers: this.defaultHeaders, observe: 'response' });
     }
 
+    searchCommunity(text: string): Observable<any> {
+        return this.http.get(`${environment.baseUrl}/communities?search=${text}`, { headers: this.defaultHeaders, observe: 'response' });
+    }
+
+    saveCommunity(obj: any): Observable<any> {
+        return this.http.post(`${environment.baseUrl}/communities`, obj, { headers: this.defaultHeaders, observe: 'response' });
+    }
 }

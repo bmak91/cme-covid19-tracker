@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { MatStepper } from '@angular/material/stepper';
-import { ActivatedRoute } from '@angular/router';
-import { Community, Info, Survey } from './shared/models/info.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Info, Survey, Key } from './shared/models/info.model';
 import { AppService } from './app.component.service';
-import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -17,19 +15,24 @@ export class AppComponent implements OnInit {
   survey: Survey;
   showHint: boolean = false;
   referenceKey: string;
-  key: string;
+  key: Key;
   localStorageKey: string = 'CoronavirusSurvey';
   alreadySubmitted: boolean = false;
   sharableLink: string;
   info: Info;
   defaultLanguage = 'ar';
   rtl = true;
+  updateMode = false;
+
   constructor(
-    private _formBuilder: FormBuilder,
+    private router: Router,
     private route: ActivatedRoute,
     private appService: AppService,
     private translate: TranslateService) {
-    this.key = localStorage.getItem(this.localStorageKey);
+    let savedKey = localStorage.getItem(this.localStorageKey);
+    if (savedKey) {
+      this.key = { privateKey: savedKey.split('_')[0], publicKey: savedKey.split('_')[1] };
+    }
     this.route.queryParams.subscribe(params => {
       if (params.lang) {
         this.defaultLanguage = params.lang;
@@ -42,15 +45,17 @@ export class AppComponent implements OnInit {
         this.referenceKey = params.referenceKey;
       }
       this.survey = {
-        key: this.referenceKey,
-        existingKey: this.key,
+        //  key: this.referenceKey,
+        // existingKey: this.key ? this.key.privateKey : null,
+        key: this.key ? this.key.privateKey : null,
         answers: []
       };
       if (this.key) {
         this.getInfo();
         this.alreadySubmitted = true;
+        this.updateMode = true;
       }
-      this.sharableLink = `${environment.currentUrl}?referenceKey=${this.key}`;
+      this.generateLink();
     });
   }
 
@@ -59,14 +64,25 @@ export class AppComponent implements OnInit {
 
   getInfo() {
     console.log('getting info');
-    this.info = {
-      connNb: 35,
-      riskState: 'Medium Risk'
-    }
+    this.appService.sendReference(this.referenceKey, this.key.privateKey).subscribe(item => {
+      if (item) {
+        this.info = {
+          connNb: 0,
+          riskState: 'Normal Risk'
+        }
+      }
+    });
   }
 
   onStepperNext(stepper) {
-    let stepsWithHint = [0, 1, 2, 3, 4];
+    console.log(stepper);
+    let stepsWithHint;
+    if (this.updateMode) {
+      stepsWithHint = [0, 1, 2, 3]
+    }
+    else {
+      stepsWithHint = [0, 1, 2, 3, 4]
+    }
     this.showHint = stepsWithHint.includes(stepper.selectedIndex);
     stepper.next();
   }
@@ -84,18 +100,30 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.appService.save(this.survey).subscribe(data => {
-    //  if (data && data.body && data.body.newKey) {
-    //   this.key = data.body.newKey;
-    this.key = 'myKey';
-    this.info = {
-      connNb: 35,
-      riskState: 'Medium Risk'
-    }
-    localStorage.setItem(this.localStorageKey, this.key);
-    //  }
-    this.sharableLink = `${environment.currentUrl}?referenceKey=${this.key}`;
-    //});
+    console.log(this.survey);
+    this.appService.save(this.survey).subscribe(data => {
+      if (data && data.body) {
+        this.key = data.body;
+        this.info = {
+          connNb: 0,
+          riskState: 'Normal Risk'
+        }
+        this.survey = {
+          // key: this.referenceKey,
+          key: this.key.privateKey,
+          answers: []
+        };
+        localStorage.setItem(this.localStorageKey, `${this.key.privateKey}_${this.key.publicKey}`);
+      }
+      this.generateLink();
+    });
+  }
+
+  generateLink() {
+    let hash = this.key ? `&referenceKey=${this.key.publicKey}` : '';
+    console.log(this.router);
+    this.sharableLink = `${environment.currentUrl}?lang=${this.defaultLanguage}${hash}`
+    console.log(this.sharableLink);
   }
 
   onPhoneNumberNext(event, stepper) {
@@ -107,6 +135,7 @@ export class AppComponent implements OnInit {
 
   onRestartStepper(stepper) {
     this.alreadySubmitted = false;
+    this.updateMode = true;
     stepper.reset();
   }
 
@@ -115,8 +144,11 @@ export class AppComponent implements OnInit {
     this.onStepperNext(stepper);
   }
 
-  saveCommunity(community) {
-    console.log('Saving community');
+  saveCommunity(communityName) {
+    let obj = { key: this.key.publicKey, community: { communityId: null, community: communityName } }
+    this.appService.saveCommunity(obj).subscribe(x => {
+      console.log(x.body);
+    });
   }
 
   savePhoneNumber(phoneNumber) {

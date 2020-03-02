@@ -10,6 +10,11 @@ export class Community {
 
 export class Survey {
     key: string;
-    existingKey: string;
+   // existingKey: string;
     answers: number[];
+}
+
+export class Key{
+    privateKey: string;
+    publicKey: string;
 }

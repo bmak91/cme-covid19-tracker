@@ -63,5 +63,6 @@ button.action-btn{
 }
 
 re-captcha{
-  margin: auto
+  display: none;
+  margin: auto;
 }

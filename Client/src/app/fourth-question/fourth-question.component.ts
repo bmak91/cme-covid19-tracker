@@ -6,8 +6,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./fourth-question.component.css']
 })
 export class FourthQuestionComponent implements OnInit {
-  inPresence: boolean;
-  isChosen: boolean = false;
   @Output() onNext: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
@@ -15,13 +13,7 @@ export class FourthQuestionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  radioChange(event) {
-    this.isChosen = true;
-  }
-
   onClick(event) {
-    this.onNext.emit(this.inPresence);
-    this.isChosen = false;
-    this.inPresence = null;
+    this.onNext.emit(event);
   }
 }
