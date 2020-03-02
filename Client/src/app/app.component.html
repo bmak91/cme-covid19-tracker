@@ -1,7 +1,7 @@
 <div class="card-wrapper" [ngClass]="rtl ? 'rtl' : ''">
   <mat-card class="form-card">
     <mat-card-content>
-      <mat-horizontal-stepper [linear]="true" #stepper>
+      <mat-horizontal-stepper [linear]="true" #stepper [direction]='rtl'>
         <div *ngIf="!alreadySubmitted">
           <mat-step>
             <app-welcome (onNext)="onStepperNext(stepper)"></app-welcome>
@@ -18,9 +18,9 @@
           <mat-step>
             <app-fourth-question (onNext)="onFinalQuestNext($event, stepper)"></app-fourth-question>
           </mat-step>
-          <mat-step *ngIf="!updateMode">
+          <!-- <mat-step *ngIf="!updateMode">
             <app-phone-number (onNext)="onPhoneNumberNext($event, stepper)"></app-phone-number>
-          </mat-step>
+          </mat-step> -->
           <mat-step>
             <app-share [link]="sharableLink" (onNext)="onStepperNext(stepper)"></app-share>
           </mat-step>

@@ -1,4 +1,4 @@
-.header-content{
+.header-content {
   position: absolute;
   top: 0px;
   color: white;
@@ -8,27 +8,27 @@
   width: -webkit-fill-available;
 }
 
-.screen-main-title{
+.screen-main-title {
   font-size: 26px;
   font-weight: 700;
 }
 
-.screen-sub-title{
+.screen-sub-title {
   font-size: 26px;
 }
 
-.seperator{
+.seperator {
   background-color: white;
   width: 10%;
   height: 2px;
   margin: 20px 0px;
 }
 
-.title-text{
+.title-text {
   font-size: 16px;
 }
 
-.body-box{
+.body-box {
   background-color: white;
   position: absolute;
   margin: 30px;
@@ -39,30 +39,29 @@
   top: 40%;
 }
 
-.body-box-text-imp{
+.body-box-text-imp {
   font-weight: bold;
 }
 
-.button-container{
+.button-container {
   position: absolute;
   bottom: 0px;
   margin: 30px;
   width: -webkit-fill-available;
 }
 
-button.action-btn{
+button.action-btn {
   width: 100%;
   border-radius: 2px;
 }
 
-.recaptcha-section{
+.recaptcha-section {
   width: 100%;
   position: absolute;
   display: flex;
   bottom: 90px;
 }
 
-re-captcha{
-  display: none;
+re-captcha {
   margin: auto;
 }

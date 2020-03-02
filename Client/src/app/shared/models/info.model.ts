@@ -10,7 +10,7 @@ export class Community {
 
 export class Survey {
     key: string;
-   // existingKey: string;
+    referrerKey: string;
     answers: number[];
 }
 

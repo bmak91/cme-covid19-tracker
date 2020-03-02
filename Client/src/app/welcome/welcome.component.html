@@ -20,10 +20,10 @@
 </div>
 <div class="recaptcha-section">
 
-    <re-captcha (resolved)="resolved($event)" siteKey="myAppKey"></re-captcha>
+    <re-captcha (resolved)="resolved($event)" siteKey="6LczAd4UAAAAAPaBu4-NugtCobceFylD_3aUR2Xg"></re-captcha>
 </div>
 
 <div class="button-container">
     <button mat-raised-button color="primary" class="action-btn"
-        (click)="onClick($event)">{{'welcome.action' | translate}}</button>
+        (click)="onClick($event)" [disabled]="!enableNext">{{'welcome.action' | translate}}</button>
 </div>

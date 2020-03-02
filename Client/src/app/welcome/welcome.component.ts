@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class WelcomeComponent implements OnInit {
 
   @Output() onNext: EventEmitter<any> = new EventEmitter<any>();
-
+  enableNext = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -19,6 +19,12 @@ export class WelcomeComponent implements OnInit {
   }
 
   resolved(captchaResponse: string) {
+    if (captchaResponse) {
+      this.enableNext = true;
+    }
+    else {
+      this.enableNext = false;
+    }
     console.log(`Resolved captcha with response: ${captchaResponse}`);
   }
 }

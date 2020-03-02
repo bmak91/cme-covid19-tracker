@@ -2,10 +2,14 @@ const Knex = require('knex');
 const uuid = require('uuid').v4;
 const crypto = require('crypto');
 
+const makePersonQueries = require('../../queries/person');
+
 const handler = async (req, res) => {
   /** @type {Knex} */
   const db = req.session.db;
-  let { key, answers, phone } = req.body;
+  let { key, referrerKey, answers, phone } = req.body;
+
+  const { getPersonByKey } = makePersonQueries(db);
 
   try {
     let pId;
@@ -30,6 +34,16 @@ const handler = async (req, res) => {
         key: privateKey,
         public_key: publicKey,
       });
+
+      let referrer = referrerKey && (await getPersonByKey(referrerKey, true));
+
+      if (referrer) {
+        await db('persons_persons').insert({
+          id: uuid(),
+          referrer_id: referrer.id,
+          person_id: pId,
+        });
+      }
     }
 
     await db('answers').insert({

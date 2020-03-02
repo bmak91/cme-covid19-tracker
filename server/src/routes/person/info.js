@@ -14,14 +14,8 @@ const handler = async (req, res) => {
   const { getPersonByKey } = makePersonQueries(db);
 
   try {
-    let referrer = referrerKey && getPersonByKey(referrerKey, true);
-    let person = existingKey && getPersonByKey(existingKey);
-
-    console.log('referrer', referrer.toQuery(), referrerKey);
-    console.log('person', person.toQuery(), existingKey);
-
-    referrer = await referrer;
-    person = await person;
+    let referrer = referrerKey && (await getPersonByKey(referrerKey, true));
+    let person = existingKey && (await getPersonByKey(existingKey));
 
     if (referrer && person) {
       await db('persons_persons').insert({

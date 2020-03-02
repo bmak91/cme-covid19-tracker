@@ -45,16 +45,15 @@ export class AppComponent implements OnInit {
         this.referenceKey = params.referenceKey;
       }
       this.survey = {
-        //  key: this.referenceKey,
-        // existingKey: this.key ? this.key.privateKey : null,
+        referrerKey: this.referenceKey,
         key: this.key ? this.key.privateKey : null,
         answers: []
       };
       if (this.key) {
-        this.getInfo();
         this.alreadySubmitted = true;
         this.updateMode = true;
       }
+      this.getInfo();
       this.generateLink();
     });
   }
@@ -63,8 +62,7 @@ export class AppComponent implements OnInit {
   }
 
   getInfo() {
-    console.log('getting info');
-    this.appService.sendReference(this.referenceKey, this.key.privateKey).subscribe(item => {
+    this.appService.sendReference(this.referenceKey, this.key?.privateKey).subscribe(item => {
       if (item) {
         this.info = {
           connNb: 0,
@@ -75,20 +73,18 @@ export class AppComponent implements OnInit {
   }
 
   onStepperNext(stepper) {
-    console.log(stepper);
     let stepsWithHint;
-    if (this.updateMode) {
-      stepsWithHint = [0, 1, 2, 3]
-    }
-    else {
-      stepsWithHint = [0, 1, 2, 3, 4]
-    }
+    //if (this.updateMode) {
+    stepsWithHint = [0, 1, 2, 3]
+    // }
+    // else {
+    //   stepsWithHint = [0, 1, 2, 3, 4]
+    // }
     this.showHint = stepsWithHint.includes(stepper.selectedIndex);
     stepper.next();
   }
 
   onQuestNext(event, stepper) {
-    console.log(event);
     this.survey.answers.push(event);
     this.onStepperNext(stepper);
   }
@@ -100,7 +96,6 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.survey);
     this.appService.save(this.survey).subscribe(data => {
       if (data && data.body) {
         this.key = data.body;
@@ -109,7 +104,7 @@ export class AppComponent implements OnInit {
           riskState: 'Normal Risk'
         }
         this.survey = {
-          // key: this.referenceKey,
+          referrerKey: this.referenceKey,
           key: this.key.privateKey,
           answers: []
         };
@@ -121,7 +116,6 @@ export class AppComponent implements OnInit {
 
   generateLink() {
     let hash = this.key ? `&referenceKey=${this.key.publicKey}` : '';
-    console.log(this.router);
     this.sharableLink = `${environment.currentUrl}?lang=${this.defaultLanguage}${hash}`
     console.log(this.sharableLink);
   }
@@ -147,7 +141,6 @@ export class AppComponent implements OnInit {
   saveCommunity(communityName) {
     let obj = { key: this.key.publicKey, community: { communityId: null, community: communityName } }
     this.appService.saveCommunity(obj).subscribe(x => {
-      console.log(x.body);
     });
   }
 
